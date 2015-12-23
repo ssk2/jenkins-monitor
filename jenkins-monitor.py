@@ -19,6 +19,7 @@ FONT_SIZE=10
 UPDATE_INTERVAL=5
 REDRAW_INTERVAL=0.3
 OFFSET_STEP=8
+SHUTDOWN_TIME_UTC=3 #7pm in California
 
 class Status(Enum):
     bad = 1,
@@ -30,15 +31,14 @@ Build = namedtuple('Build', 'name status')
 
 Update = namedtuple('Update', 'status text')
 
-def bootstrap(queue):
+def bootstrap(queue, matrix):
     queue.put(Update(status=Status.loading, text='Loading'))
-    draw_screen_thread = Thread(target = update_screen, args = (queue, ))
+    draw_screen_thread = Thread(target = update_screen, args = (queue, matrix))
     draw_screen_thread.daemon = True
     draw_screen_thread.start()
     return draw_screen_thread
 
-def update_screen(queue):
-    matrix = Adafruit_RGBmatrix(32, 1)
+def update_screen(queue, matrix):
     last_update = Update(0, "")
     font = ImageFont.truetype(FONT_PATH, FONT_SIZE)
     image = None
@@ -126,12 +126,14 @@ def update_monitor(builds):
     return Update(build_status, text)
 
 def main():
+    matrix = Adafruit_RGBmatrix(32, 1)
     queue = Queue.Queue()
-    bootstrap(queue)
-    while True:
+    bootstrap(queue, matrix)
+    while time.gmtime().tm_hour != SHUTDOWN_TIME_UTC:
         time.sleep(UPDATE_INTERVAL)
         builds = fetch_builds(JENKINS_URL)
         update = update_monitor(builds)
         queue.put(update)
+    matrix.Clear()
 
 if __name__ == "__main__": main()
