@@ -21,7 +21,7 @@ The [Adafruit tutorial](https://learn.adafruit.com/adafruit-rgb-matrix-plus-real
 
 1. Clone this repo:
     ```
-    git clone git@github.com:ssk2/jenkins-monitor.git
+    git clone git@github.com:ssk2/jenkins-monitor.git && cd jenkins-monitor
     ```
 2. Initialise [the submodule](https://github.com/adafruit/rpi-rgb-led-matrix):
     ```
