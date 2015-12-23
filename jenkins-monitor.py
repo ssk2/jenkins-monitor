@@ -9,7 +9,7 @@ import Queue
 from threading import Thread
 
 JENKINS_URL='http://ma.dcos.ca1.mesosphere.com/service/jenkins/view/Monitor%20View/api/python'
-ASSETS_PATH='assets/'
+ASSETS_PATH='/home/pi/jenkins-monitor/assets/'
 JENKINS_LOGO='jenkins.png'
 BAD_IMAGES=['bad/' + s for s in ['awesomeface-angry.png', 'awesomeface-sad.png', 'awesomeface-unhappy.png']]
 GOOD_IMAGES=['good/' + s for s in ['awesomeface-chin.jpg', 'awesomeface-crazy.png', 'awesomeface-happy.png', 'awesomeface-sunglasses.jpg', 'awesomeface.jpg']]
