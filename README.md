@@ -44,6 +44,23 @@ The [Adafruit tutorial](https://learn.adafruit.com/adafruit-rgb-matrix-plus-real
     sudo python jenkins-monitor.py
     ```
 
+## Configuration
+
+### Jenkins URL
+
+Set `JENKINS_URL` to point to the View you want this script to monitor.
+
+### Images
+
+The `BAD_IMAGES`, `GOOD_IMAGES` and `NEUTRAL_IMAGES` arrays each point to local assets that should be shown when one or more builds are failing, no builds are failing or a build is running respectively.
+
+### Font
+
+You may need to specify a different font by setting `FONT_PATH` to point to a font available on your system.
+
+
+## Misc
+
 ### Resizing Images
 
 Images must be 32x32 in size. You can use `imagemagick` to resize them from the command line:
