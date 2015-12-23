@@ -44,6 +44,23 @@ The [Adafruit tutorial](https://learn.adafruit.com/adafruit-rgb-matrix-plus-real
     sudo python jenkins-monitor.py
     ```
 
+
+## Cron
+
+You may like to set up a cron job to start this process up every day at a certain time. (It will exit itself at a specified UTC hour.)
+
+First, open the crontab as root:
+
+```
+sudo crontab -e
+```
+
+Then add the line below to the end, changing the schedule and file path to point to where you've cloned the repo. In this configuration, the script starts at 2pm UTC (or 8am Californian time):
+
+```
+0 14 * * 1-5 python /home/pi/jenkins-monitor/jenkins-monitor.py
+```
+
 ## Configuration
 
 ### Jenkins URL
