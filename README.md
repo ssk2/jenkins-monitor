@@ -58,7 +58,7 @@ sudo crontab -e
 Then add the line below to the end, changing the schedule and file path to point to where you've cloned the repo. In this configuration, the script starts at 2pm UTC (or 8am Californian time):
 
 ```
-0 14 * * 1-5 python /user/pi/jenkins-monitor/jenkins-monitor.py
+0 14 * * 1-5 python /home/pi/jenkins-monitor/jenkins-monitor.py
 ```
 
 ## Configuration
