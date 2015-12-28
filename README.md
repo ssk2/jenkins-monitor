@@ -4,6 +4,8 @@ A Jenkins monitor for the Mesosphere office. This application assumes your Jenki
 
 Inspired by [sloth](https://github.com/teabot/sloth).
 
+[![Jenkins monitor in action](http://img.youtube.com/vi/obt04wCXUqQ/0.jpg)](http://www.youtube.com/watch?v=obt04wCXUqQ)
+
 ## Assembly
 
 The following components are used in the monitor:
