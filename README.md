@@ -4,6 +4,8 @@ A Jenkins monitor for the Mesosphere office. This application assumes your Jenki
 
 Inspired by [sloth](https://github.com/teabot/sloth).
 
+[![Jenkins monitor in action](http://img.youtube.com/vi/obt04wCXUqQ/0.jpg)](http://www.youtube.com/watch?v=obt04wCXUqQ)
+
 ## Assembly
 
 The following components are used in the monitor:
@@ -58,7 +60,7 @@ sudo crontab -e
 Then add the line below to the end, changing the schedule and file path to point to where you've cloned the repo. In this configuration, the script starts at 2pm UTC (or 8am Californian time):
 
 ```
-0 14 * * 1-5 python /home/pi/jenkins-monitor/jenkins-monitor.py
+0 14 * * 1-5 python /home/pi/jenkins-monitor/jenkins-monitor.py 2>&1 | /usr/bin/logger -t jenkins-monitor
 ```
 
 ## Configuration
